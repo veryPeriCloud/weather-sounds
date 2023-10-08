@@ -13,5 +13,131 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #1e1e1e;
+  backdrop-filter: blur(2px);
+  transition: background 0.3s ease-in-out;
+}
+
+.summer {
+  background: url("../public/assets/summer-bg.jpg");
+
+  h1 {
+    color: rgb(239, 114, 30);
+  }
+}
+
+.rain {
+  background: url("../public/assets/rain-bg.jpg");
+
+  h1 {
+    color: violet;
+  }
+}
+
+.winter {
+  background: url("../public/assets/winter-bg.jpg");
+
+  h1 {
+    color: white;
+  }
+}
+
+
+.container {
+  margin: 0 auto;
+  padding: 20px 15px;
+  max-width: 930px;
+  height: 100vh;
+}
+
+.weather {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 48px;
+    line-height: 130%;
+    text-align: center;
+  }
+
+  &__audio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  &__btn {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-repeat: no-repeat;
+      background-size: 30%;
+    }
+
+    &--summer {
+      background-image: url("../public/assets/summer-bg.jpg");
+
+      &::before {
+        background: url("../public/assets/icons/sun.svg") center center no-repeat;
+        background-size: 30%;
+      }
+    }
+
+    &--rain {
+      background-image: url("../public/assets/rain-bg.jpg");
+
+      &::before {
+        background: url("../public/assets/icons/cloud-rain.svg") center center no-repeat;
+        background-size: 30%;
+      }
+    }
+
+    &--winter {
+      background-image: url("../public/assets/winter-bg.jpg");
+
+      &::before {
+        background: url("../public/assets/icons/cloud-snow.svg") center center no-repeat;
+        background-size: 30%;
+      }
+    }
+
+    &.play {
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: url("../public/assets/icons/pause.svg") center center no-repeat;
+        background-repeat: no-repeat;
+        background-size: 30%;
+      }
+    }
+  }
 }
