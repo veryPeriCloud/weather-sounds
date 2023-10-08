@@ -21,7 +21,10 @@ body {
   background: url("../public/assets/summer-bg.jpg");
 
   h1 {
-    color: rgb(239, 114, 30);
+    color: coral;
+  }
+  input[type="range"] {
+    accent-color: coral;
   }
 }
 
@@ -31,6 +34,9 @@ body {
   h1 {
     color: violet;
   }
+  input[type="range"] {
+    accent-color: violet;
+  }
 }
 
 .winter {
@@ -38,6 +44,9 @@ body {
 
   h1 {
     color: white;
+  }
+  input[type="range"] {
+    accent-color: white;
   }
 }
 

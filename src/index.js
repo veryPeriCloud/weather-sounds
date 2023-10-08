@@ -7,6 +7,7 @@ const sounds = ["summer", "rain", "winter"];
 
 // set inital background
 setAppBackground(sounds[0]);
+createElements();
 
 function createElements() {
   const title = document.createElement("h1");
@@ -22,6 +23,7 @@ function createElements() {
 
     const audio = document.createElement("audio");
     audio.id = i;
+    audio.loop = true;
     audio.src = `./assets/sounds/${sounds[i]}.mp3`;
 
     btn.append(audio);
@@ -33,14 +35,21 @@ function createElements() {
   volumeInput.setAttribute("max", 1);
   volumeInput.setAttribute("step", 0.1);
   volumeInput.setAttribute("type", "range");
+  volumeInput.setAttribute("id", "volume");
 
   app.append(title, btnWrapper, volumeInput)
 }
 
-createElements();
-
 const buttons = document.querySelectorAll("button");
 const audios = document.querySelectorAll("audio");
+const volumeInput = document.getElementById("volume");
+
+volumeInput.addEventListener("input", (e) => {
+  const value = e.target.value
+  audios.forEach((audio) =>{
+    audio.volume = value;
+  })
+})
 
 buttons
   .forEach((btn, index) => {
